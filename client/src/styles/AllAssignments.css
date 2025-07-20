@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+}
+.assignments-container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.assignments-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2d3436;
+}
+
+.assignment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.assignment-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+  border: 1px solid #dfe6e9;
+}
+
+.assignment-card:hover {
+  transform: translateY(-4px);
+}
+
+.assignment-card h3 {
+  margin-top: 0;
+  color: #0984e3;
+}
+
+.assignment-card p {
+  margin: 6px 0;
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+.assignment-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #00b894;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.assignment-card a:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  text-align: center;
+  color: #636e72;
+  font-size: 1.1rem;
+}

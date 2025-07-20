@@ -1,0 +1,35 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 5px solid #fcfeff;
+}
+
+.footer-content h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.footer-copy {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-content h3 {
+    font-size: 18px;
+  }
+
+  .footer-content p {
+    font-size: 14px;
+  }
+}
