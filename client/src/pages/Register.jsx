@@ -12,7 +12,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/auth/register', { name, email, password });
+      await axios.post('https://assignment-backend-4l7a.onrender.com/api/auth/register', { name, email, password });
       navigate('/login');
     } catch (err) {
       alert('Registration failed. Please try again.');

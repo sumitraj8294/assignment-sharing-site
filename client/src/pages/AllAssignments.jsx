@@ -6,11 +6,13 @@ function AllAssignments() {
   const [assignments, setAssignments] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/assignments/all').then(res => {
-      setAssignments(res.data);
-    }).catch(err => {
-      alert('Failed to fetch assignments');
-    });
+    axios.get('https://assignment-backend-4l7a.onrender.com/api/assignments/all')
+      .then(res => {
+        setAssignments(res.data);
+      })
+      .catch(err => {
+        alert('Failed to fetch assignments');
+      });
   }, []);
 
   return (
@@ -26,7 +28,9 @@ function AllAssignments() {
               <p><strong>Topic:</strong> {a.topic}</p>
               <p><strong>By:</strong> {a.user.name}</p>
               <p>{a.description}</p>
-              <a href={a.fileUrl} target="_blank" rel="noopener noreferrer">🔗 View File</a>
+              <a href={`https://assignment-backend-4l7a.onrender.com${a.fileUrl}`} target="_blank" rel="noopener noreferrer">
+                🔗 View File
+              </a>
             </div>
           ))}
         </div>

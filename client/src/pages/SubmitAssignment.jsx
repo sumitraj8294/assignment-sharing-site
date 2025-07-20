@@ -22,12 +22,16 @@ function SubmitAssignment() {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('/api/assignments/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: localStorage.getItem('token')
+      const res = await axios.post(
+        'https://assignment-backend-4l7a.onrender.com/api/assignments/upload',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: localStorage.getItem('token')
+          }
         }
-      });
+      );
       alert("✅ Assignment submitted successfully!");
       setTitle('');
       setTopic('');
