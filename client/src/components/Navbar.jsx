@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+
 import '../styles/Navbar.css';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
+  useEffect(() => {
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUser(decoded); // { id: ..., name: ..., ... }
+      } catch (err) {
+        console.error('Invalid token');
+      }
+    }
+  }, [token]);
+
   const handleLogout = () => {
     localStorage.removeItem('token');
+    setUser(null);
     navigate('/login');
   };
 
@@ -26,8 +41,13 @@ function Navbar() {
         {token ? (
           <>
             <li><Link to="/submit">Submit</Link></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><button onClick={handleLogout}>Logout</button></li>
+            <li className="user-dropdown">
+              <span className="user-name">👤 {user?.name}</span>
+              <div className="dropdown-content">
+                <Link to="/profile">Dashboard</Link>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            </li>
           </>
         ) : (
           <>

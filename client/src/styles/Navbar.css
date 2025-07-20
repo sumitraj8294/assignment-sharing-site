@@ -1,68 +1,113 @@
-body {
-  margin: 0;
-}
 .navbar {
+  background-color: #00b894;
+  color: white;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #00b894;
-  padding: 10px 20px;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  margin: 0 10px;
 }
 
-.navbar-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.navbar-links li button {
-  background: none;
-  border: none;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .hamburger {
   background: none;
   border: none;
-  font-size: 1.5rem;
   color: white;
-  cursor: pointer;
+  font-size: 1.5rem;
   display: none;
 }
 
-/* Mobile Styles */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 6px 10px;
+  background-color: #0984e3;
+  border-radius: 5px;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.user-name:hover {
+  background-color: #74b9ff;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  color: #2d3436;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  transition: visibility 0s, opacity 0.2s linear;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+  color: #2d3436;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #dfe6e9;
+}
+
+/* 🔒 FIX: Keep dropdown visible while hovering on parent or itself */
+.user-dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
   .navbar-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #00b894;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
     display: none;
   }
 
@@ -71,7 +116,8 @@ body {
   }
 
   .navbar-links li {
-    margin: 10px 0;
-    text-align: center;
+    width: 100%;
+    text-align: left;
+    margin: 8px 0;
   }
 }
